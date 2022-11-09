@@ -106,5 +106,7 @@
     <orderEntry type="library" name="Maven: org.jetbrains:annotations:13.0" level="project" />
     <orderEntry type="library" name="Maven: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.6.21" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-autoconfigure:2.7.5" level="project" />
+    <orderEntry type="library" name="Maven: cn.hutool:hutool-all:5.7.3" level="project" />
+    <orderEntry type="library" name="Maven: com.alibaba:druid:1.2.14" level="project" />
   </component>
 </module>
