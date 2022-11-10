@@ -49,5 +49,12 @@ public class UserController {
 
     }
 
+    @DeleteMapping("/{userId}")
+    public Result<?> delete(@PathVariable Long userId){
+        userMapper.deleteById(userId);
+        return Result.success();
+
+    }
+
 
 }

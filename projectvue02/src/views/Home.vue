@@ -20,7 +20,7 @@
       <el-table-column fixed="right" label="操作" width="180">
         <template #default="scope">
           <el-button @click="handleEdit(scope.row)" >编辑</el-button>
-          <el-popconfirm title="确认删除吗?" @confirm="handleDelete(scope.row.id)">
+          <el-popconfirm title="确认删除吗?" @confirm="handleDelete(scope.row.userId)">
             <template #reference>
               <el-button type="danger">删除</el-button>
             </template>
@@ -67,7 +67,6 @@
       </span>
       </template>
     </el-dialog>
-
   </div>
 </template>
 
@@ -87,8 +86,17 @@ export default {
     this.load()
   },
   methods:{
-    handleDelete(){
-
+    handleDelete(userId){
+      console.log(userId)
+      request.delete("/api/user/" + userId).then(res=>{
+        if (res.code==='0'){
+          this.$message({
+            type:"success",
+            message:"删除成功"
+          })
+        }
+        this.load()
+      })
     },
     handleEdit(row){
       this.form = JSON.parse(JSON.stringify(row))
@@ -155,7 +163,7 @@ export default {
     handleCurrentChange(pageNum){
       this.currentPage=pageNum
       this.load()
-    }
+    },
 
 
   },
