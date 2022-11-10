@@ -86,28 +86,11 @@ export default {
     this.load()
   },
   methods:{
-    handleDelete(userId){
-      console.log(userId)
-      request.delete("/api/user/" + userId).then(res=>{
-        if (res.code==='0'){
-          this.$message({
-            type:"success",
-            message:"删除成功"
-          })
-        }
-        this.load()
-      })
-    },
-    handleEdit(row){
-      this.form = JSON.parse(JSON.stringify(row))
-      this.dialogVisible=true
 
-    },
     add(){
       this.dialogVisible =true
       this.form = {}
     },
-
     save(){
       if (this.form.userId){
         request.put("/api/user",this.form).then(res =>{
@@ -164,7 +147,23 @@ export default {
       this.currentPage=pageNum
       this.load()
     },
+    handleDelete(userId){
+      console.log(userId)
+      request.delete("/api/user/" + userId).then(res=>{
+        if (res.code==='0'){
+          this.$message({
+            type:"success",
+            message:"删除成功"
+          })
+        }
+        this.load()
+      })
+    },
+    handleEdit(row){
+      this.form = JSON.parse(JSON.stringify(row))
+      this.dialogVisible=true
 
+    },
 
   },
   data(){
