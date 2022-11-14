@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/projectspringboot02/demo.iml" filepath="$PROJECT_DIR$/projectspringboot02/demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/projectspringboot02/projectspringboot02.iml" filepath="$PROJECT_DIR$/projectspringboot02/projectspringboot02.iml" />
       <module fileurl="file://$PROJECT_DIR$/projectvue02/projectvue02.iml" filepath="$PROJECT_DIR$/projectvue02/projectvue02.iml" />
     </modules>
   </component>
