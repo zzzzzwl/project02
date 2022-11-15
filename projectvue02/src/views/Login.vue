@@ -4,13 +4,13 @@
       <div style="color: black; font-size: 30px;text-align: center;padding: 30px 0">欢迎登录</div>
       <el-form size="default" ref="form" :model="form">
         <el-form-item>
-          <el-input prefix-icon="" v-model="form.userName" />
+          <el-input prefix-icon="user" v-model="form.userName" />
         </el-form-item>
         <el-form-item>
-          <el-input prefix-icon="" v-model="form.password" show-password />
+          <el-input prefix-icon="lock" v-model="form.password" show-password />
         </el-form-item>
         <el-form-item>
-          <el-button style="width: 100%" type="primary">登 录</el-button>
+          <el-button style="width: 100%" type="primary" @click="login">登 录</el-button>
         </el-form-item>
       </el-form>
 
@@ -28,6 +28,11 @@ export default {
       form:{},
     }
 
+  },
+  methods:{
+    login(){
+
+    }
   }
 }
 </script>
