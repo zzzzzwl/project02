@@ -7,10 +7,26 @@
           router
       >
         <el-sub-menu index="1">
-          <template #title>系统管理</template>
-            <el-menu-item index="home" >用户管理</el-menu-item>
-            <el-menu-item index="music" >音乐管理</el-menu-item>
+          <template #title>
+            <el-icon><HomeFilled /></el-icon>
+            系统管理
+          </template>
+            <el-menu-item index="home" >
+              <el-icon><UserFilled /></el-icon>
+              用户管理
+            </el-menu-item>
+            <el-menu-item index="music" prefix="music">
+              <el-icon><Service /></el-icon>
+              音乐管理
+            </el-menu-item>
         </el-sub-menu>
 
       </el-menu>
 </template>
+<script>
+import Music from "@/views/Music";
+import {Location} from "@element-plus/icons";
+export default {
+  components: {Location, Music}
+}
+</script>
