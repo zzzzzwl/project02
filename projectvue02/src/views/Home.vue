@@ -93,7 +93,7 @@ export default {
     },
     save(){
       if (this.form.userId){
-        request.put("/api/user",this.form).then(res =>{
+        request.put("/user",this.form).then(res =>{
           console.log(res)
           if (res.code==='0'){
             this.$message({
@@ -113,7 +113,7 @@ export default {
 
 
       }else{
-        request.post("/api/user",this.form).then(res =>{
+        request.post("/user",this.form).then(res =>{
           console.log(res)
           this.$message({
             type:"success",
@@ -127,7 +127,7 @@ export default {
       this.dialogVisible=false
     },
     load(){
-      request.get("/api/user",{
+      request.get("/user",{
         params:{
           pageNum:this.currentPage,
           pageSize:this.pageSize,
@@ -149,7 +149,7 @@ export default {
     },
     handleDelete(userId){
       console.log(userId)
-      request.delete("/api/user/" + userId).then(res=>{
+      request.delete("/user/" + userId).then(res=>{
         if (res.code==='0'){
           this.$message({
             type:"success",
