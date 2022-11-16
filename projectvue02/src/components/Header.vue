@@ -5,12 +5,12 @@
     <div style="width: 100px">
       <el-dropdown>
         <span class="el-dropdown-link" style="line-height: 50px">
-          {{ userName }}<el-icon class="el-icon-arrow-right el-icon--right"><arrow-down /></el-icon>
+          {{ user.userName }}<el-icon class="el-icon-arrow-right el-icon--right"><arrow-down /></el-icon>
         </span>
         <template #dropdown>
           <el-dropdown-menu>
             <el-dropdown-item>个人信息</el-dropdown-item>
-            <el-dropdown-item @click="$router.push('/login')">退出</el-dropdown-item>
+            <el-dropdown-item @click="exit">退出</el-dropdown-item>
 
           </el-dropdown-menu>
         </template>
@@ -27,6 +27,13 @@ export default {
   props:['user'],
   components:{
     ArrowDown
+  },
+  methods:{
+    exit(){
+      sessionStorage.removeItem('user')
+      this.$router.push('/login')
+
+    }
   }
 
 }

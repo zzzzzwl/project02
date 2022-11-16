@@ -33,7 +33,7 @@ public class UserController {
         if (res == null){
             return Result.error("-1","用户名或密码错误");
         }
-        return Result.success();
+        return Result.success(res);
 
     }
 
@@ -82,6 +82,12 @@ public class UserController {
         return Result.success();
 
     }
+    @GetMapping("/{userId}")
+    public Result<?> userInfo(@PathVariable Long userId){
+        User user = userMapper.selectOne(Wrappers.<User>lambdaQuery()
+                .eq(User::getUserId, userId));
+        return Result.success(user);
 
+    }
 
 }
