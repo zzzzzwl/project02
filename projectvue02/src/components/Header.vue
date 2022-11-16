@@ -5,7 +5,7 @@
     <div style="width: 100px">
       <el-dropdown>
         <span class="el-dropdown-link" style="line-height: 50px">
-          用户<el-icon class="el-icon-arrow-right el-icon--right"><arrow-down /></el-icon>
+          {{ userName }}<el-icon class="el-icon-arrow-right el-icon--right"><arrow-down /></el-icon>
         </span>
         <template #dropdown>
           <el-dropdown-menu>
@@ -24,6 +24,7 @@
 import {ArrowDown} from '@element-plus/icons-vue'
 export default {
   name: "Header",
+  props:['user'],
   components:{
     ArrowDown
   }
