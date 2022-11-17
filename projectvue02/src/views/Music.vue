@@ -14,7 +14,7 @@
 <!--    表格区-->
     <el-table :data="tableData" border stripe style="width: 100%;display: flex;">
       <el-table-column prop="musicId" label="ID" sortable  />
-      <el-table-column prop="songTitle" label="歌名" sortable  />
+      <el-table-column prop="songTitle" label="歌名" sortable  action=""/>
       <el-table-column prop="albumName" label="专辑名" sortable/>
       <el-table-column prop="publicationDate" label="发表日期" sortable/>
       <el-table-column prop="lyricist" label="作词" sortable/>

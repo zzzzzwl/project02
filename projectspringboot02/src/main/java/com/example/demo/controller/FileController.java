@@ -35,7 +35,7 @@ public class FileController {
     @GetMapping("/{flag}")
     public void getFiles(HttpServletResponse response, @PathVariable String flag){
         OutputStream os;  // 新建一个输出流对象
-        String basePath = System.getProperty("user.dir") + "/projectspringboot02/src/main/resources/files/pictures/";  // 定于文件上传的根路径
+        String basePath = System.getProperty("user.dir") + "/projectspringboot02/src/main/resources/files/music";  // 定于文件上传的根路径
         List<String> fileNames = FileUtil.listFileNames(basePath);  // 获取所有的文件名称
         String fileName = fileNames.stream().filter(name -> name.contains(flag)).findAny().orElse("");  // 找到跟参数一致的文件
         try {

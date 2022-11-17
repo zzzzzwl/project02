@@ -1,11 +1,17 @@
 <template>
       <el-menu
           style="width: 200px;min-height: calc(100vh - 50px)"
-          default-active="user"
+          default-active="home"
           :default-openeds="[1]"
           class="el-menu-vertical-demo"
           router
       >
+        <el-menu-item index="home">
+          <template #title>
+            <el-icon><House /></el-icon>
+            主页
+          </template>
+        </el-menu-item>
         <el-sub-menu index="1">
           <template #title>
             <el-icon><HomeFilled /></el-icon>

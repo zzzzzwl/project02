@@ -5,7 +5,7 @@ const routes = [
     path: '/',
     name: 'Layout',
     component: Layout,
-    redirect:"/user",
+    redirect:"/home",
     children:[
       {
         path:'user',
@@ -16,7 +16,12 @@ const routes = [
         path:'music',
         name:'Music',
         component:()=>import("@/views/Music")
-      }
+      },
+      {
+        path:'home',
+        name:'Home',
+        component:()=>import("@/views/Home")
+      },
 
     ]
   },
@@ -30,6 +35,7 @@ const routes = [
     name: 'Register',
     component: ()=>import("@/views/Register")
   },
+
 
 ]
 
