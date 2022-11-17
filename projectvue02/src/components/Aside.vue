@@ -12,6 +12,23 @@
             主页
           </template>
         </el-menu-item>
+
+        <el-menu-item index="list">
+          <template #title>
+            <el-icon><List /></el-icon>
+            歌单
+          </template>
+        </el-menu-item>
+
+        <el-menu-item index="album">
+          <template #title>
+            <el-icon><Notebook /></el-icon>
+            专辑
+          </template>
+        </el-menu-item>
+
+
+
         <el-sub-menu index="1">
           <template #title>
             <el-icon><HomeFilled /></el-icon>

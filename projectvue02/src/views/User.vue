@@ -13,10 +13,10 @@
     </div>
 <!--    表格区-->
     <el-table :data="tableData" border stripe style="width: 100%;display: flex;">
-      <el-table-column prop="userId" label="ID" sortable  />
-      <el-table-column prop="userName" label="用户名" sortable  />
-      <el-table-column prop="password" label="密码" />
-      <el-table-column prop="address" label="地址" />
+      <el-table-column prop="userId" label="ID" sortable/>
+      <el-table-column prop="userName" label="用户名" sortable/>
+      <el-table-column prop="password" label="密码"/>
+      <el-table-column prop="address" label="地址"/>
       <el-table-column fixed="right" label="操作" width="180">
         <template #default="scope">
           <el-button @click="handleEdit(scope.row)" >编辑</el-button>
