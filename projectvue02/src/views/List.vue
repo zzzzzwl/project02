@@ -7,13 +7,37 @@
     </div>
     <!--    表格区-->
     <el-table :data="tableData" border stripe style="width: 100%;display: flex;">
-      <el-table-column prop="musicId" label="ID" sortable  />
-      <el-table-column prop="songTitle" label="歌名" sortable  action=""/>
-      <el-table-column prop="albumName" label="专辑名" sortable/>
-      <el-table-column prop="publicationDate" label="发表日期" sortable/>
-      <el-table-column prop="lyricist" label="作词" sortable/>
-      <el-table-column prop="composer" label="作曲" sortable/>
-      <el-table-column prop="arranger" label="编曲" sortable/>
+        <el-table-column prop="musicId" label="ID" sortable  />
+        <el-table-column prop="songTitle" label="歌名" sortable  action=""/>
+        <el-table-column prop="albumName" label="专辑名" sortable/>
+        <el-table-column prop="publicationDate" label="发表日期" sortable/>
+        <el-table-column prop="lyricist" label="作词" sortable/>
+        <el-table-column prop="composer" label="作曲" sortable/>
+        <el-table-column prop="arranger" label="编曲" sortable/>
+        <el-table-column prop="songTitle">
+          <el-tooltip
+              class="box-item"
+              effect="dark"
+              content="播放"
+              placement="top-start"
+          >
+            <el-link>
+              <el-icon size="large"><CaretRight /></el-icon>
+            </el-link>
+          </el-tooltip>
+
+          &nbsp;
+          <el-tooltip
+              class="box-item"
+              effect="dark"
+              content="下载"
+              placement="top-start"
+          >
+            <el-link v-bind:href="'http://localhost:8888/files/music/'">
+              <el-icon size="large"><Download /></el-icon>
+            </el-link>
+          </el-tooltip>
+        </el-table-column>
     </el-table>
     <!--    分页栏-->
     <div style="margin: 10px 0">
