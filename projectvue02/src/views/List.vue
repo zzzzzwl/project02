@@ -15,28 +15,31 @@
         <el-table-column prop="composer" label="作曲" sortable/>
         <el-table-column prop="arranger" label="编曲" sortable/>
         <el-table-column prop="songTitle">
-          <el-tooltip
-              class="box-item"
-              effect="dark"
-              content="播放"
-              placement="top-start"
-          >
-            <el-link>
-              <el-icon size="large"><CaretRight /></el-icon>
-            </el-link>
-          </el-tooltip>
+          <template #default="scope">
+            <el-tooltip
+                class="box-item"
+                effect="dark"
+                content="播放"
+                placement="top-start"
+            >
+              <el-link>
+                <el-icon size="large"><CaretRight /></el-icon>
+              </el-link>
+            </el-tooltip>
 
-          &nbsp;
-          <el-tooltip
-              class="box-item"
-              effect="dark"
-              content="下载"
-              placement="top-start"
-          >
-            <el-link v-bind:href="'http://localhost:8888/files/music/'">
-              <el-icon size="large"><Download /></el-icon>
-            </el-link>
-          </el-tooltip>
+            &nbsp;
+            <el-tooltip
+                class="box-item"
+                effect="dark"
+                content="下载"
+                placement="top-start"
+            >
+              <el-link v-bind:href="'http://localhost:8888/files/music/'+tableData.at(scope.$index).songTitle">
+                <el-icon size="large"><Download /></el-icon>
+              </el-link>
+            </el-tooltip>
+          </template>
+
         </el-table-column>
     </el-table>
     <!--    分页栏-->
@@ -67,9 +70,6 @@ export default {
   components: {
 
   },
-  created() {
-    this.load()
-  },
   methods:{
 
     load(){
@@ -94,6 +94,9 @@ export default {
       this.load()
     },
 
+  },
+  created() {
+    this.load()
   },
   data(){
     return {

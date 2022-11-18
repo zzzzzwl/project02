@@ -34,7 +34,7 @@ public class FileController {
     }
 
     @GetMapping("/music/{flag}")
-    public void getFiles(HttpServletResponse response, @PathVariable String flag){
+    public Result<?> getFiles(HttpServletResponse response, @PathVariable String flag){
         OutputStream os;  // 新建一个输出流对象
         String basePath = System.getProperty("user.dir") + "/projectspringboot02/src/main/resources/files/music/";  // 定于文件上传的根路径
         List<String> fileNames = FileUtil.listFileNames(basePath);  // 获取所有的文件名称
@@ -48,9 +48,12 @@ public class FileController {
                 os.write(bytes);
                 os.flush();
                 os.close();
+            }else {
+                return Result.error("-1","文件不存在");
             }
         } catch (Exception e) {
             System.out.println("文件下载失败");
         }
+        return Result.success();
     }
 }

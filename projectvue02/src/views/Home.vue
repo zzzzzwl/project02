@@ -10,10 +10,10 @@
     <h3>热歌推荐</h3>
     <el-table :data="tableData" stripe style="width: 100%;"   size="large">
       <el-table-column  label="排行"  type="index" width="200"/>
-      <el-table-column prop="name" label="歌名" width="200"/>
-      <el-table-column prop="name" label="专辑" width="200"/>
-      <el-table-column prop="number" label="点击量" width="200"/>
-      <el-table-column prop="number" label="时长" width="200"/>
+      <el-table-column prop="songTitle" label="歌名" width="200"/>
+      <el-table-column prop="albumName" label="专辑" width="200"/>
+      <el-table-column prop="" label="点击量" width="200"/>
+      <el-table-column prop="" label="时长" width="200"/>
       <el-table-column fixed="right" label="" >
         <template #default="scope">
           <el-tooltip
@@ -50,8 +50,11 @@
 </template>
 
 <script>
+import request from "@/utils/request";
+
 export default {
   name: "Home",
+
   data(){
     return{
       items:[
@@ -61,54 +64,31 @@ export default {
       ],
 
       tableData:[
-        {
-          name: '曼陀山庄',
-          number:'4394',
-
-        },
-        {
-          name: '南山忆',
-          number:'2800',
-
-        },
-        {
-          name: '有桃花',
-          number:'2200',
-
-        },
-        {
-          name: '想象之中',
-          number:'1987',
-
-        },
-        {
-          name: '有何不可',
-          number:'1650',
-
-        },
-        {
-          name: '胡萝卜须',
-          number:'996',
-
-        },
-        {
-          name: '千古',
-          number:'443',
-
-        },
-        {
-          name: '蝴蝶的时间',
-          number:'369',
-
-        },
-      ]
-
+      ],
+      dialogVisible: false,
+      form:{},
+      currentPage:1,
+      total:0,
+      pageSize:10,
     }
   },
+
   methods:{
     setSize:function () {
       // 通过浏览器宽度(图片宽度)计算高度
       this.bannerHeight = 400 / 2160* this.screenWidth;
+    },
+    load(){
+      request.get("/music/recommend",{
+        params:{
+          pageNum:this.pageNum,
+          pageSize:this.pageSize,
+        }
+      }).then(res=>{
+        console.log(res)
+        this.tableData = res.data.records
+        this.total = res.data.total
+      })
     },
   },
   mounted() {
@@ -120,7 +100,11 @@ export default {
       this.screenWidth =  window.innerWidth;
       this.setSize();
     }
-  }
+  },
+
+  created() {
+    this.load()
+  },
 
 }
 </script>

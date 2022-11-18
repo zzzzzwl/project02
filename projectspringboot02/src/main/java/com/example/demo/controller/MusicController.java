@@ -28,10 +28,7 @@ public class MusicController {
 
         Page<Music> musicPage = musicMapper.selectPage(new Page<>(pageNum, pageSize),
                 wrapper);
-
         return Result.success(musicPage);
-
-
     }
 
     @PostMapping
@@ -53,6 +50,15 @@ public class MusicController {
         musicMapper.deleteById(musicId);
         return Result.success();
 
+    }
+    @GetMapping("/recommend")
+    public Result<?> recommend(@RequestParam(defaultValue = "1") Integer pageNum,
+                              @RequestParam(defaultValue = "10") Integer pageSize
+                              ){
+        LambdaQueryWrapper<Music> wrapper = Wrappers.<Music>lambdaQuery();
+        Page<Music> musicPage = musicMapper.selectPage(new Page<>(pageNum, pageSize),
+                wrapper);
+        return Result.success(musicPage);
     }
 
 }
