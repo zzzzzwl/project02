@@ -27,6 +27,11 @@ const routes = [
         name:'Album',
         component:()=>import("@/views/Album")
       },
+      {
+        path:'list',
+        name:'List',
+        component:()=>import("@/views/List")
+      },
 
     ]
   },

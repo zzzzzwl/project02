@@ -23,6 +23,7 @@ public class FileController {
 
 
     @PostMapping("/upload")
+    @CrossOrigin//跨域
     public Result<?> upload(MultipartFile file) throws IOException {
         String originalFilename = file.getOriginalFilename();
         //定义文件唯一标识

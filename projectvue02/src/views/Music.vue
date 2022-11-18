@@ -36,7 +36,7 @@
       <el-pagination
           v-model:currentPage="currentPage"
           v-model:page-size="pageSize"
-          :page-sizes="[5,10,20]"
+          :page-sizes="[20,total]"
           layout="total, sizes, prev, pager, next, jumper"
           :total="total"
           @size-change="handleSizeChange"
@@ -192,7 +192,7 @@ export default {
       dialogVisible: false,
       form:{},
       currentPage:1,
-      pageSize:10,
+      pageSize:20,
       total:0,
 
       tableData:[],
