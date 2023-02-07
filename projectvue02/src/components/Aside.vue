@@ -1,6 +1,6 @@
 <template>
       <el-menu
-          style="width: 200px;min-height: calc(100vh - 50px)"
+          style="width: 200px;min-height: calc(100vh - 100px)"
           default-active="home"
           :default-openeds="[1]"
           class="el-menu-vertical-demo"

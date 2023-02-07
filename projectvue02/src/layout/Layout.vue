@@ -8,20 +8,24 @@
       <!--      侧边栏-->
       <Aside></Aside>
       <!--      内容区域-->
-      <router-view style="flex: 1" @userInfo="refreshUser"/>
+      <router-view style="flex: 1" @userInfo="refreshUser" @playmusic="playmusic"/>
     </div>
+    <!--    底栏播放组件-->
+    <Bottom ref="Bottom"></Bottom>
   </div>
 </template>
 
 <script>
 import Header from "@/components/Header";
 import Aside from "@/components/Aside";
+import Bottom from "@/components/Bottom";
 import request from "@/utils/request";
 export default {
   name: "Layout",
   components:{
     Header,
-    Aside
+    Aside,
+    Bottom
 
   },
   data() {
@@ -45,6 +49,9 @@ export default {
       })
 
 
+    },
+    playmusic(){
+      this.$refs.Bottom.play1();
     }
   }
 }

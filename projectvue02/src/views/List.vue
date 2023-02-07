@@ -22,8 +22,8 @@
                 content="播放"
                 placement="top-start"
             >
-              <el-link>
-                <el-icon size="large"><CaretRight /></el-icon>
+              <el-link @click="playmusic()" >
+                <el-icon size="large"><CaretRight/></el-icon>
               </el-link>
             </el-tooltip>
 
@@ -93,8 +93,12 @@ export default {
       this.currentPage=pageNum
       this.load()
     },
+    playmusic(){
+      this.$emit("playmusic")
+    }
 
   },
+
   created() {
     this.load()
   },
