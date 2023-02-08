@@ -8,7 +8,7 @@
       <!--      侧边栏-->
       <Aside></Aside>
       <!--      内容区域-->
-      <router-view style="flex: 1" @userInfo="refreshUser" @playmusic="playmusic"/>
+      <router-view style="flex: 1" @userInfo="refreshUser" :getmusicurl="getmusicurl" />
     </div>
     <!--    底栏播放组件-->
     <Bottom ref="Bottom"></Bottom>
@@ -30,7 +30,8 @@ export default {
   },
   data() {
     return {
-      user: {}
+      user: {},
+      musicurl:''
     }
   },
   created() {
@@ -50,7 +51,10 @@ export default {
 
 
     },
-    playmusic(){
+    getmusicurl(musicurl){
+      this.musicurl=musicurl
+      console.log(this.musicurl)
+      this.$refs.Bottom.$data.musicurl=this.musicurl
       this.$refs.Bottom.play1();
     }
   }

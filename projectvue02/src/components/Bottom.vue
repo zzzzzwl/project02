@@ -2,7 +2,7 @@
   <div style="height: 100%;line-height: 50px;border-bottom: 1px solid #ccc;display: flex">
     <div style="margin: auto">
       <audio controls ref="audio">
-        <source src="../../../projectspringboot02/src/main/resources/files/music/南山忆.mp3"/>
+        <source src=""/>
       </audio>
     </div>
   </div>
@@ -13,11 +13,13 @@ export default {
   name: "Bottom",
   data(){
     return{
+      musicurl:''
 
     }
   },
   methods:{
     play1(){
+      this.$refs.audio.src=this.musicurl
       this.$refs.audio.play();
     }
   },

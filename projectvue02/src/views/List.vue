@@ -22,7 +22,7 @@
                 content="播放"
                 placement="top-start"
             >
-              <el-link @click="playmusic()" >
+              <el-link @click="sendmusicurl('http://localhost:8888/files/music/'+tableData.at(scope.$index).songTitle)" >
                 <el-icon size="large"><CaretRight/></el-icon>
               </el-link>
             </el-tooltip>
@@ -70,6 +70,7 @@ export default {
   components: {
 
   },
+  props:["getmusicurl"],
   methods:{
 
     load(){
@@ -93,8 +94,10 @@ export default {
       this.currentPage=pageNum
       this.load()
     },
-    playmusic(){
-      this.$emit("playmusic")
+    sendmusicurl(musicurl){
+      this.musicurl = musicurl
+      this.getmusicurl(this.musicurl)
+      this.$emit("getmusicurl")
     }
 
   },
@@ -111,6 +114,7 @@ export default {
       pageSize:20,
       total:0,
       tableData:[],
+      musicurl:'',
     }
   }
 }
